@@ -10,7 +10,7 @@ public class TankZombie : MonoBehaviour {
 	float Move = 8f;
 	public bool canJump;
 	NavMeshAgent agent;
-	private void Start() {
+	void Start() {
 		tankRB = GetComponent<Rigidbody>();
 		agent = GetComponent<NavMeshAgent>();
 	}
@@ -23,7 +23,8 @@ public class TankZombie : MonoBehaviour {
 				canJump = false;
 			} if (distance <= 13f){
 				//Follow();
-				agent.destination = carPlayer.position;
+				//agent.destination = carPlayer.position;
+				//Os dois funcionam bem, mas vou desativar para não atrapalhar o teste de outras funcionalidades.
 			} 
 	}
 	void Jump(){
@@ -32,7 +33,7 @@ public class TankZombie : MonoBehaviour {
 	void Follow(){
 		transform.position = Vector3.MoveTowards(transform.position, carPlayer.position, Move * Time.deltaTime);
 	}
-	private void OnCollisionStay(Collision other) {
+	void OnCollisionStay(Collision other) {
 		if(other.gameObject.CompareTag("Buildings")){
 			canJump = true;
 		} else {

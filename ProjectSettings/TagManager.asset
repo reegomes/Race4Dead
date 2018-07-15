@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Buildings
   - TankZombie
+  - WheelParticles
+  - EndGame
   layers:
   - Default
   - TransparentFX
